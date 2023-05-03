@@ -1,8 +1,14 @@
 .itemincart{
-    background-color: rgb(255, 195, 172);
-    text-align: center;
-    width: 50vw;
-    margin: 2rem auto;
+    background: rgb(169, 225, 223);
+    width: 15rem;
     padding: 1rem;
+    margin-bottom: 1rem;
     border-radius: 5px;
+}
+.itemincart:nth-child(odd){
+    margin-right: 1rem;
+}
+
+.itemincart img{
+    max-width: 50%;
 }

@@ -15,17 +15,16 @@ export default function App(){
 
     async function getProducts(){
         const res = await fetch('https://avjs-shop-default-rtdb.europe-west1.firebasedatabase.app/.json');
-        console.log(res);
         const data = await res.json();
-
+        console.log(data);
         if(Array.isArray(data)){
             console.log('success!');
 
             const newProducts = data.map(p => { return {
                 //image: p.img.svg,
-                category: p.id,
+                category: p.category,
                 description: p.name,
-                id: p.stock,
+                id: p.id,
                 image: p.image,
                 price: p.price,
                 stock: p.stock,
@@ -48,14 +47,16 @@ export default function App(){
 
     return (
         <>  
-        <MenuBar setPage={setPage}></MenuBar>
+        <MenuBar setPage={setPage} amountInCart={cart.length}></MenuBar>
         {onpage === 'shop' &&
             <div className='ProductList'>
-                {products.map(product => <Product key={product.id} category={product.id} description={product.description} stoimageck={product.image} price={product.price} stock={product.stock} title={product.title} updateCart={setCart} currentCartItems={cart}/>)}
+                {products.map(product => <Product id={product.id} category={product.category} description={product.description} image={product.image} price={product.price} stock={product.stock} title={product.title} updateCart={setCart} currentCartItems={cart}/>)}
             </div>}
         {onpage === 'cart' &&
         <div className='ShoppingCart'>
-                {cart.map(cart => <ItemInCart key={cart.id} id={cart.id} name={cart.name} stock={cart.stock} price={cart.price} updateCart={setCart} currentCartItems={cart}/>)}
+                {cart.map(itemInCart => 
+                <ItemInCart id={itemInCart.id} category={itemInCart.category} description={itemInCart.description} image={itemInCart.image} price={itemInCart.price} stock={itemInCart.stock} title={itemInCart.title} 
+                updateCart={setCart} currentCartItems={cart}/>)}
                 {/*total value*/}
         </div>}
         </>
