@@ -8,3 +8,8 @@
 .menubar h2{
     margin-bottom: 1rem;
 }
+h1 {
+    font-weight: bold;
+    color: #353232;
+    font-size: 32px;
+  }

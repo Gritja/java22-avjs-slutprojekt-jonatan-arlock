@@ -14,7 +14,7 @@ function gotoCart() {
 
     return (
         <div className='menu'>
-            <h2>Ye olde Webbe shoppe</h2>
+            <h1>Ye olde Webbe shoppe</h1>
                 <button onClick={() => gotoShop()}>Products</button>
                 <button onClick={() => gotoCart()}>Cart</button>
                 {/*<h1 id='itemsincart'>Send from appjsx</h1>*/}
