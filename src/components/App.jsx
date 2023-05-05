@@ -12,6 +12,7 @@ export default function App(){
     const [products, setProducts] = useState([]);
     const [onpage, setPage] = useState("shop");
     const [cart, setCart] = useState([]);
+    const [itemTotal, setTotal] = useState(0);
 
     async function getProducts(){
         const res = await fetch('https://avjs-shop-default-rtdb.europe-west1.firebasedatabase.app/.json');
@@ -35,10 +36,6 @@ export default function App(){
             //console.log (newDummyProduct);
         }
 
-
-
-
-
     }
 
     useEffect(()=> {
@@ -47,17 +44,19 @@ export default function App(){
 
     return (
         <>  
-        <MenuBar setPage={setPage} amountInCart={cart.length}></MenuBar>
+        <MenuBar setPage={setPage} amountInCart={cart.length}/>
         {onpage === 'shop' &&
             <div className='ProductList'>
-                {products.map(product => <Product id={product.id} category={product.category} description={product.description} image={product.image} price={product.price} stock={product.stock} title={product.title} updateCart={setCart} currentCartItems={cart}/>)}
+                {products.map(product => <Product id={product.id} category={product.category} description={product.description} 
+                image={product.image} price={product.price} stock={product.stock} title={product.title} updateCart={setCart} 
+                currentCartItems={cart} updateTotal={setTotal} currentTotal={itemTotal}/>)}
             </div>}
         {onpage === 'cart' &&
         <div className='ShoppingCart'>
                 {cart.map(itemInCart => 
                 <ItemInCart id={itemInCart.id} category={itemInCart.category} description={itemInCart.description} image={itemInCart.image} price={itemInCart.price} stock={itemInCart.stock} title={itemInCart.title} 
                 updateCart={setCart} currentCartItems={cart}/>)}
-                {/*total value*/}
+        <ShoppingCart setPage={setPage} setCart={setCart} updateTotal={setTotal} currentTotal={itemTotal} currentCartItems={cart}></ShoppingCart>
         </div>}
         </>
     )

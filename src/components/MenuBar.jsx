@@ -17,8 +17,7 @@ function gotoCart() {
             <h1>Ye olde Webbe shoppe</h1>
                 <button onClick={() => gotoShop()}>Products</button>
                 <button onClick={() => gotoCart()}>Cart</button>
-                <h1>{amountInCart}</h1>
-                {/*<h1 id='itemsincart'>Send from appjsx</h1>*/}
+                <h1>Items in cart: {amountInCart}</h1>
         </div>
     )
 }

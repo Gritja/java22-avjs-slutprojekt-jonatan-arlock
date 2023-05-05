@@ -1,11 +1,18 @@
 import '../css/Product.css'
-export default function Product({updateCart, currentCartItems, id, description, title, stock, category, price, image}){
+export default function Product({updateCart, currentCartItems, id, description, title, stock, category, price, image, updateTotal, currentTotal}){
     function handleClick() {
-        //if stock > 0
+        //when clicked, check how many of these items exist in current cart items, then check against current stock
+        const itemsWithId = currentCartItems.filter(c => c.id === id)
+        //console.log(itemsWithId.length);
+        if (itemsWithId.length < stock) {
         const itemId = {id, title, price, stock, category, price, image};
-        console.log(itemId);
+
+        //also add price to the total in cart
         updateCart([...currentCartItems, itemId]);
-        console.log('added ' + itemId);
+        updateTotal(currentTotal + price);
+        } else {
+            alert('no more items not in stock')
+        }
     } 
 
     return(
