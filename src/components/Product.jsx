@@ -21,8 +21,8 @@ export default function Product({updateCart, currentCartItems, id, description, 
             <h1>{title}</h1>
             <img src={image} />
             <h2>{description}</h2>
-            <h2>{stock}</h2>
-            <h2>{price}</h2>
+            <h2>In stock: {stock}</h2>
+            <h2>Price: {price}</h2>
         </div>
     )
 }

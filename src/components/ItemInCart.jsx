@@ -1,7 +1,7 @@
 import '../css/ItemInCart.css'
 //som product fast i cart. klicka för att ta bort
 
-export default function ItemInCart({updateCart, currentCartItems, id, description, title, stock, category, price, image}){
+export default function ItemInCart({description, title, stock, category, price, image}){
     function handleClick() {
         //remove item from list and update shopping cart
         //updateCart([]);

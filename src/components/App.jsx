@@ -34,7 +34,8 @@ export default function App(){
             
             setProducts(newProducts);
             //console.log (newDummyProduct);
-        }
+        } else
+        console.log('is not array?')
 
     }
 
@@ -56,7 +57,8 @@ export default function App(){
                 {cart.map(itemInCart => 
                 <ItemInCart id={itemInCart.id} category={itemInCart.category} description={itemInCart.description} image={itemInCart.image} price={itemInCart.price} stock={itemInCart.stock} title={itemInCart.title} 
                 updateCart={setCart} currentCartItems={cart}/>)}
-        <ShoppingCart setPage={setPage} setCart={setCart} updateTotal={setTotal} currentTotal={itemTotal} currentCartItems={cart}></ShoppingCart>
+        <ShoppingCart setPage={setPage} setCart={setCart} updateTotal={setTotal} currentTotal={itemTotal}
+         currentCartItems={cart} itemsInStock={products}></ShoppingCart>
         </div>}
         </>
     )
