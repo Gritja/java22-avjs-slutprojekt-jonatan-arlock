@@ -1,6 +1,6 @@
 import '../css/MenuBar.css'
 
-export default function MenuBar({onpage, setPage, amountInCart}){
+export default function MenuBar({setPage, amountInCart}){
 
 function gotoShop() {
     setPage("shop")

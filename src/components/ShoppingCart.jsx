@@ -1,21 +1,17 @@
 import '../css/ShoppingCart.css';
-import Product from './Product';
-
-//hantera töm cart och köp product.price reduce
 
 export default function ShoppingCart({setCart, setPage, purchaseItems, emptyCart, updateTotal, currentTotal, currentCartItems, itemsInStock}){
 
         async function purchaseItems(itemsInStock, currentCartItems) {
             
+            //checks items in fetched stock versus the items in cart, if the id matches then decrease stock before updating database 
             itemsInStock.map((itemInStock) => {
                 currentCartItems.map((currentCartItem) => {
                     if(itemInStock.id === currentCartItem.id)
-                        itemInStock.stock = itemInStock.stock -1;
+                        itemInStock.stock--;
                 })
                 
             })
-
-            console.log(itemsInStock);
 
               fetch('https://avjs-shop-default-rtdb.europe-west1.firebasedatabase.app/.json', {
                 method: "PUT",

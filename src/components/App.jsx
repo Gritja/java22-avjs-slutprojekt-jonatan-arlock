@@ -22,7 +22,6 @@ export default function App(){
             console.log('success!');
 
             const newProducts = data.map(p => { return {
-                //image: p.img.svg,
                 category: p.category,
                 description: p.name,
                 id: p.id,
@@ -33,7 +32,6 @@ export default function App(){
             }})
             
             setProducts(newProducts);
-            //console.log (newDummyProduct);
         } else
         console.log('is not array?')
 
