@@ -4,12 +4,10 @@ export default function MenuBar({setPage, amountInCart}){
 
 function gotoShop() {
     setPage("shop")
-    console.log('go to shop');
 }
 
 function gotoCart() {
     setPage("cart")
-    console.log('go to cart');
 }
 
     return (
