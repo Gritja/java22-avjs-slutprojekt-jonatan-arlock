@@ -3,9 +3,11 @@ export default function Product({updateCart, currentCartItems, id, description, 
     function handleClick() {
         //when clicked, check how many of these items exist in current cart items, then check against current stock
         const itemsWithId = currentCartItems.filter(c => c.id === id)
+        //console.log(itemsWithId.length);
         if (itemsWithId.length < stock) {
         const itemId = {id, title, price, stock, category, price, image};
 
+        //also add price to the total in cart
         updateCart([...currentCartItems, itemId]);
         updateTotal(currentTotal + price);
         } else {
