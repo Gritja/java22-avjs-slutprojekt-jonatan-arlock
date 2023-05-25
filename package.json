@@ -2,9 +2,9 @@
   "name": "react-mall",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel ./src/index.html",
+    "dev": "parcel ./index.html",
     "clean": "del-cli ./dist ./.parcel-cache ./docs ./dist",
-    "build": "parcel build ./src/index.html --dist-dir docs --public-url ./"
+    "build": "parcel build ./index.html --dist-dir docs --public-url ./"
   },
   "keywords": [],
   "author": "",
